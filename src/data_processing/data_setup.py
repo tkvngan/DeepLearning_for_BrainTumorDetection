@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 from tqdm import tqdm
-import cv2
+import cv2 # type: ignore
 from sklearn.model_selection import train_test_split
 
 # Image processing
@@ -36,7 +36,10 @@ def download_dataset(dataset_dir):
     
     # Try to download the dataset using Kaggle API
     try:
-        from kaggle.api.kaggle_api_extended import KaggleApi
+        # Import Kaggle API - using the correct import path
+        from kaggle.api.kaggle_api_extended import KaggleApi # type: ignore
+        
+        # Initialize and authenticate
         api = KaggleApi()
         api.authenticate()
         

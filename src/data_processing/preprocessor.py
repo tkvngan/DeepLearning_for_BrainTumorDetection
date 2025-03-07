@@ -3,7 +3,7 @@ Preprocessor module for the Brain Tumor Detection project.
 Contains utilities for image preprocessing and augmentation.
 """
 
-import cv2
+import cv2 # type: ignore
 import numpy as np
 import random
 import tensorflow as tf
