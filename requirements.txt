@@ -27,7 +27,7 @@ plotly==5.15.0
 ipywidgets==8.0.7
 
 # Data loading and management
-kagglehub==0.2.5
+kaggle==1.5.16
 h5py==3.9.0
 pyarrow==12.0.1
 

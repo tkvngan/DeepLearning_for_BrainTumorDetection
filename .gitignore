@@ -1,0 +1,94 @@
+# Virtual environment
+venv/
+env/
+ENV/
+.env
+.venv
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Data directories (optional - uncomment if needed)
+# data/raw/
+# data/processed/
+
+# Results and model files (optional - uncomment if needed)
+# results/
+# *.pt
+# *.h5
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+.spyderproject
+.spyproject
+.ropeproject
+
+# Tensorboard logs
+logs/
+runs/
+tensorboard/
+
+# Wandb logs
+wandb/
+
+# MLflow
+mlruns/
+
+# Kaggle credentials
+kaggle.json
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.out
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+
+# Documentation
+docs/_build/
+docs/generated/
+site/
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg

@@ -1,0 +1,7 @@
+split,label,count
+train,tumor,61
+train,no_tumor,64
+val,tumor,13
+val,no_tumor,14
+test,tumor,13
+test,no_tumor,14

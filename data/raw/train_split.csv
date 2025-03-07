@@ -1,0 +1,126 @@
+filepath,label
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\21 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y3.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\No20.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\12 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\no 97.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y30.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\22 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\50 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\no 8.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\18 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\39 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\N15.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\5 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y168.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\no 6.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\N21.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\no 4.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\24 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y4.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y20.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y169.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y76.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\34 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\no 923.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\no 89.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y92.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\N6.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\49 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y183.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y62.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\7 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\no 9.png,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y6.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y252.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y79.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\32 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y194.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\26 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\2 no.jpeg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y31.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\6 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\1 no.jpeg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y42.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y107.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y33.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\20 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y51.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\46 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\8 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\28 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\no 98.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\19 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\no 99.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\45 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\40 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\no 90.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y70.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y28.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y254.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\36 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y37.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\No11.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\14 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\35 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y15.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y25.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y154.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y35.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y77.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\25 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y78.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\no 7.jpeg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y13.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y53.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y102.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y162.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\13 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\No14.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y7.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y38.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y96.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\41 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\27 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y8.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y185.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\43 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y90.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y10.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y153.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y14.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y108.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y82.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\15 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y21.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\N11.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\47 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y101.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y104.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\No19.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y92.png,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y2.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y27.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y60.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y39.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\No17.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y46.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\N5.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\30 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\17 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\42 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y186.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\No22.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y41.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\no 96.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y61.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\no 94.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y34.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y17.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y56.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\no 91.jpeg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y52.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\N3.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\yes\Y69.jpg,tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\38 no.jpg,no_tumor
+C:\Projects\DeepLearning_for_BrainTumorDetection\data\raw\no\33 no.jpg,no_tumor

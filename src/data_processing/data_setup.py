@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 """
 Data setup script for Brain Tumor Detection project.
-Downloads the dataset using kagglehub and performs preprocessing.
+Downloads the dataset using Kaggle API and performs preprocessing.
 """
 
 import os
 import shutil
 import random
 import argparse
-import kagglehub
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -22,7 +21,7 @@ import matplotlib.pyplot as plt
 
 def download_dataset(dataset_dir):
     """
-    Download the brain MRI dataset using kagglehub.
+    Download the brain MRI dataset using Kaggle API.
     
     Args:
         dataset_dir: Path to store the dataset
@@ -32,15 +31,59 @@ def download_dataset(dataset_dir):
     """
     print("Downloading Brain MRI dataset...")
     
-    # Download latest version
-    path = kagglehub.dataset_download("navoneel/brain-mri-images-for-brain-tumor-detection")
+    # Create directory if it doesn't exist
+    os.makedirs(dataset_dir, exist_ok=True)
     
-    print(f"Dataset downloaded to: {path}")
+    # Try to download the dataset using Kaggle API
+    try:
+        from kaggle.api.kaggle_api_extended import KaggleApi
+        api = KaggleApi()
+        api.authenticate()
+        
+        print("Authenticated with Kaggle API")
+        print(f"Downloading to {dataset_dir}...")
+        
+        # Download the dataset
+        api.dataset_download_files(
+            dataset="navoneel/brain-mri-images-for-brain-tumor-detection",
+            path=dataset_dir,
+            unzip=True
+        )
+        
+        print("Dataset downloaded successfully")
+        
+    except Exception as e:
+        print(f"Error downloading dataset: {e}")
+        print("\nManual download instructions:")
+        print("1. Go to: https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection")
+        print("2. Click the 'Download' button")
+        print(f"3. Extract the downloaded zip file to: {dataset_dir}")
+        print("4. Ensure the directory structure is:")
+        print(f"   {dataset_dir}/yes/ - contains tumor images")
+        print(f"   {dataset_dir}/no/ - contains non-tumor images")
+        raise
     
-    # Create organized directory structure in our project
-    organize_dataset(path, dataset_dir)
+    # Verify the download
+    yes_dir = os.path.join(dataset_dir, 'yes')
+    no_dir = os.path.join(dataset_dir, 'no')
     
-    return path
+    # Check if we need to look deeper for the data directories
+    if not (os.path.exists(yes_dir) and os.path.exists(no_dir)):
+        print("Looking for dataset in subdirectories...")
+        # Look for yes/no directories in subdirectories
+        for root, dirs, files in os.walk(dataset_dir):
+            for d in dirs:
+                if d.lower() == 'yes':
+                    yes_dir = os.path.join(root, d)
+                    print(f"Found 'yes' directory at {yes_dir}")
+                elif d.lower() == 'no':
+                    no_dir = os.path.join(root, d)
+                    print(f"Found 'no' directory at {no_dir}")
+    
+    if not (os.path.exists(yes_dir) and os.path.exists(no_dir)):
+        raise FileNotFoundError("Could not find 'yes' and 'no' directories in the downloaded dataset.")
+    
+    return dataset_dir
 
 def organize_dataset(source_path, dataset_dir):
     """
@@ -57,11 +100,9 @@ def organize_dataset(source_path, dataset_dir):
     yes_dir = os.path.join(source_path, 'yes')
     no_dir = os.path.join(source_path, 'no')
     
-    if not os.path.exists(yes_dir) or not os.path.exists(no_dir):
-        print(f"Expected directory structure not found in {source_path}")
-        print("Looking for alternative structure...")
-        
-        # Try to find the correct paths
+    if not (os.path.exists(yes_dir) and os.path.exists(no_dir)):
+        print("Looking for dataset in subdirectories...")
+        # Look for yes/no directories in subdirectories
         for root, dirs, files in os.walk(source_path):
             for d in dirs:
                 if d.lower() == 'yes':
@@ -71,11 +112,16 @@ def organize_dataset(source_path, dataset_dir):
                     no_dir = os.path.join(root, d)
                     print(f"Found 'no' directory at {no_dir}")
     
+    if not (os.path.exists(yes_dir) and os.path.exists(no_dir)):
+        raise FileNotFoundError("Could not find 'yes' and 'no' directories in the downloaded dataset.")
+    
     # Get all image files
     yes_images = [os.path.join(yes_dir, f) for f in os.listdir(yes_dir) 
                   if f.endswith(('.jpg', '.jpeg', '.png'))]
     no_images = [os.path.join(no_dir, f) for f in os.listdir(no_dir) 
                  if f.endswith(('.jpg', '.jpeg', '.png'))]
+    
+    print(f"Found {len(yes_images)} tumor images and {len(no_images)} non-tumor images")
     
     # Create dataframe with file paths and labels
     files_df = pd.DataFrame({
@@ -296,11 +342,15 @@ if __name__ == "__main__":
     os.makedirs(args.processed_dir, exist_ok=True)
     
     # Download dataset
-    download_path = download_dataset(os.path.join(args.data_dir, 'raw'))
+    raw_dir = os.path.join(args.data_dir, 'raw')
+    download_path = download_dataset(raw_dir)
+    
+    # Organize dataset
+    organize_dataset(download_path, raw_dir)
     
     # Preprocess images
     preprocess_images(
-        os.path.join(args.data_dir, 'raw'),
+        raw_dir,
         args.processed_dir,
         tuple(args.img_size)
     )
