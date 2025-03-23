@@ -1,8 +1,8 @@
 ========== Best Model Configurations ==========
-Best hyperparameter configuration: Baseline
-Test accuracy: 0.5185
-Parameters: {'name': 'Baseline', 'num_conv_layers': 3, 'filters': 32, 'kernel_size': 3, 'dropout_rate': 0.5, 'dense_units': 256, 'lr': 0.0001}
+Best hyperparameter configuration: Higher_LR
+Test accuracy: 0.6296
+Parameters: {'name': 'Higher_LR', 'num_conv_layers': 3, 'filters': 32, 'kernel_size': 3, 'dropout_rate': 0.5, 'dense_units': 256, 'lr': 0.001}
 
-Best regularization technique: L1L2_Regularization
+Best regularization technique: L2_Regularization
 Test accuracy: 0.5185
-Parameters: {'name': 'L1L2_Regularization', 'l1': 0.0005, 'l2': 0.0005, 'dropout': 0.5}
+Parameters: {'name': 'L2_Regularization', 'l1': 0, 'l2': 0.001, 'dropout': 0.5}
