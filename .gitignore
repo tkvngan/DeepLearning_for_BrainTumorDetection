@@ -93,5 +93,5 @@ wheels/
 .installed.cfg
 *.egg
 
-# Unwanted files
+# Big files
 src/models/supervised
