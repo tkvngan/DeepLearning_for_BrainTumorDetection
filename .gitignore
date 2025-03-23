@@ -92,3 +92,6 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Unwanted files
+src/models/supervised
