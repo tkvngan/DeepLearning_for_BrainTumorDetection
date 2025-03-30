@@ -95,3 +95,7 @@ wheels/
 
 # Big files
 src/models/supervised
+
+# Other
+checkpoints/
+*.pdf
