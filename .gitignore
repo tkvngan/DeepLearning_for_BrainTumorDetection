@@ -99,3 +99,4 @@ src/models/supervised
 # Other
 checkpoints/
 *.pdf
+notebooks/VGG_CNN_model.h5
