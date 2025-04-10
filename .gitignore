@@ -100,3 +100,4 @@ src/models/supervised
 checkpoints/
 *.pdf
 notebooks/VGG_CNN_model.h5
+saved_model
