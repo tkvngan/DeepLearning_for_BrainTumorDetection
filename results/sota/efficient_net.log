@@ -1,0 +1,85 @@
+Found 125 files belonging to 2 classes.
+Found 27 files belonging to 2 classes.
+Found 27 files belonging to 2 classes.
+Class names: ['no_tumor', 'tumor']
+Model: "sequential_1"
+_________________________________________________________________
+ Layer (type)		     Output Shape	       Param #
+=================================================================
+ efficientnetb0 (Functional  (None, 7, 7, 1280)        4049571
+ )
+
+ sequential (Sequential)     (None, 1)		       1281
+
+=================================================================
+Total params: 4050852 (15.45 MB)
+Trainable params: 3841629 (14.65 MB)
+Non-trainable params: 209223 (817.28 KB)
+_________________________________________________________________
+None
+Epoch 1/15
+4/4 [==============================] - 9sA1s/stepl-sloss:70.7592a-caccuracy:50.5760 - val_loss: 0.8059 - val_accuracy: 0.4815
+Epoch 2/15
+4/4 [==============================] - 1sA153ms/steps- loss:20.4572u-aaccuracy:00.9200 - val_loss: 0.7821 - val_accuracy: 0.4815
+Epoch 3/15
+4/4 [==============================] - 0sA125ms/steps- loss:10.2971u-aaccuracy:00.9920 - val_loss: 0.7591 - val_accuracy: 0.5185
+Epoch 4/15
+4/4 [==============================] - 0sA127ms/steps- loss:40.2034u-aaccuracy:01.0000 - val_loss: 0.7402 - val_accuracy: 0.5185
+Epoch 5/15
+4/4 [==============================] - 0sA131ms/steps- loss:70.1437u-aaccuracy:01.0000 - val_loss: 0.7249 - val_accuracy: 0.5556
+Epoch 6/15
+4/4 [==============================] - 0sA129ms/steps- loss:20.1032u-aaccuracy:01.0000 - val_loss: 0.7126 - val_accuracy: 0.5556
+Epoch 7/15
+4/4 [==============================] - 0sA125ms/steps- loss:30.0763u-aaccuracy:01.0000 - val_loss: 0.7007 - val_accuracy: 0.5556
+Epoch 8/15
+4/4 [==============================] - 0sA124ms/steps- loss:60.0576u-aaccuracy:01.0000 - val_loss: 0.6911 - val_accuracy: 0.5926
+Epoch 9/15
+4/4 [==============================] - 0sA123ms/steps- loss:80.0448u-aaccuracy:01.0000 - val_loss: 0.6842 - val_accuracy: 0.6296
+Epoch 10/15
+4/4 [==============================] - 0sA127ms/steps- loss:10.0351u-aaccuracy:01.0000 - val_loss: 0.6763 - val_accuracy: 0.6667
+Epoch 11/15
+4/4 [==============================] - 0sA125ms/steps- loss:30.0283u-aaccuracy:01.0000 - val_loss: 0.6691 - val_accuracy: 0.6667
+Epoch 12/15
+4/4 [==============================] - 0sA126ms/steps- loss:50.0235u-aaccuracy:01.0000 - val_loss: 0.6613 - val_accuracy: 0.7407
+Epoch 13/15
+4/4 [==============================] - 0sA124ms/steps- loss:90.0199u-aaccuracy:01.0000 - val_loss: 0.6519 - val_accuracy: 0.7407
+Epoch 14/15
+4/4 [==============================] - 0sA124ms/steps- loss:10.0171u-aaccuracy:01.0000 - val_loss: 0.6431 - val_accuracy: 0.7407
+Epoch 15/15
+4/4 [==============================] - 0sA124ms/steps- loss:90.0149u-aaccuracy:01.0000 - val_loss: 0.6333 - val_accuracy: 0.7407
+Epoch 1/10
+4/4 [==============================] - 11s:2s/stepo-sloss:10.0120c-uaccuracy:01.0000 - val_loss: 0.6228 - val_accuracy: 0.7407 - lr: 1.0000e-05
+Epoch 2/10
+4/4 [==============================] - 1sA152ms/steps- loss:00.0110u-aaccuracy:01.0000 - val_loss: 0.6121 - val_accuracy: 0.7778 - lr: 1.0000e-05
+Epoch 3/10
+4/4 [==============================] - 0sA99ms/steps-:loss:00.0103c-raccuracy:01.0000 - val_loss: 0.6009 - val_accuracy: 0.7778 - lr: 1.0000e-05
+Epoch 4/10
+4/4 [==============================] - 0sA101ms/steps- loss:50.0095u-aaccuracy:01.0000 - val_loss: 0.5904 - val_accuracy: 0.7778 - lr: 1.0000e-05
+Epoch 5/10
+4/4 [==============================] - 0sA96ms/steps-:loss:80.0089c-raccuracy:01.0000 - val_loss: 0.5810 - val_accuracy: 0.8148 - lr: 1.0000e-05
+Epoch 6/10
+4/4 [==============================] - 0sA94ms/steps-:loss:80.0082c-raccuracy:01.0000 - val_loss: 0.5712 - val_accuracy: 0.8519 - lr: 1.0000e-05
+Epoch 7/10
+4/4 [==============================] - 0sA92ms/steps-:loss:70.0077c-raccuracy:01.0000 - val_loss: 0.5618 - val_accuracy: 0.8519 - lr: 1.0000e-05
+Epoch 8/10
+4/4 [==============================] - 0sA91ms/steps-:loss:70.0071c-raccuracy:01.0000 - val_loss: 0.5526 - val_accuracy: 0.8519 - lr: 1.0000e-05
+Epoch 9/10
+4/4 [==============================] - 0sA93ms/steps-:loss:60.0067c-raccuracy:01.0000 - val_loss: 0.5441 - val_accuracy: 0.8519 - lr: 1.0000e-05
+Epoch 10/10
+4/4 [==============================] - 0sA91ms/steps-:loss:60.0062c-raccuracy:01.0000 - val_loss: 0.5356 - val_accuracy: 0.8889 - lr: 1.0000e-05
+Model saved to /Users/vincent/Projects/DeepLearning_for_BrainTumorDetection/models/EfficientNet_model.h5
+1/1 [==============================] - 0sA62ms/steps-:loss:50.3756c-raccuracy:80.8889
+EfficientNet - Model Evaluation:
+Test Accuracy: 88.89%
+1/1 [==============================] - 1sA1s/step
+Classification Report:
+EfficientNet - Classification Report:
+	      precision    recall  f1-score   support
+
+    no_tumor	   0.82      1.00      0.90	   14
+       tumor	   1.00      0.77      0.87	   13
+
+    accuracy			       0.89	   27
+   macro avg	   0.91      0.88      0.89	   27
+weighted avg	   0.91      0.89      0.89	   27
+

@@ -1,0 +1,9 @@
+EfficientNet - Classification Report:
+              precision    recall  f1-score   support
+
+    no_tumor       0.82      1.00      0.90        14
+       tumor       1.00      0.77      0.87        13
+
+    accuracy                           0.89        27
+   macro avg       0.91      0.88      0.89        27
+weighted avg       0.91      0.89      0.89        27
