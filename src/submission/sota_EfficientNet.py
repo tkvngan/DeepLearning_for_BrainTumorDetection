@@ -22,6 +22,7 @@ MODEL_PATH = f"{ROOT_DIR}/models/EfficientNet_model.h5"
 
 import matplotlib.pyplot as plt
 import seaborn as sns
+import cv2
 from tensorflow.keras import layers, models
 from tensorflow.keras.applications import EfficientNetB0
 from sklearn.metrics import confusion_matrix, classification_report
@@ -125,6 +126,8 @@ class EfficientNetBinaryClassifier:
         self.y_pred_classes = []
         self.y_true = []
 
+
+
         for images, labels in self.test_data:
             predictions = self.model.predict(images)
             pred_classes = (predictions > 0.5).astype(int).flatten()
@@ -132,14 +135,17 @@ class EfficientNetBinaryClassifier:
             self.y_true.extend(labels.numpy())
 
     def plot_performance(self):
-        os.makedirs(f"{ROOT_DIR}/results/sota", exist_ok=True)
         plt.figure()
-        plt.plot(self.history.history['accuracy'], label='Train Accuracy', color='red')
-        plt.plot(self.history.history['val_accuracy'], label='Validation Accuracy', color='blue')
-        plt.legend()
-        plt.title('EfficientNet - Model Accuracy')
-        plt.xlabel('Epoch')
-        plt.ylabel('Accuracy')
+        fig, ax1 = plt.subplots()
+        ax1.set_xlabel('Epochs')
+        ax1.set_ylabel('Validation Accuracy', color='blue')
+        ax1.plot(self.history.history['val_accuracy'], color='blue')
+        ax1.tick_params(axis='y', labelcolor='blue')
+        ax2 = ax1.twinx()
+        ax2.set_ylabel('Validation Loss', color='red')
+        ax2.plot(self.history.history['val_loss'], color='red')
+        ax2.tick_params(axis='y', labelcolor='red')
+        plt.title('EfficientNet - Validation Accuracy and Loss')
         plt.tight_layout()
         plt.savefig(f"{ROOT_DIR}/results/sota/efficient_net_accuracy_curve.png")
         if DISPLAY_PLOTS:
@@ -158,6 +164,48 @@ class EfficientNetBinaryClassifier:
         if DISPLAY_PLOTS:
             plt.show()
         plt.close()
+
+
+    def plot_epoch_metrics(self):
+        """
+        Calculates and plots training precision, recall, and F1 score over epochs.
+        Requires `self.history.history['accuracy']` and `self.history.history['loss']` to be populated.
+        """
+        from sklearn.metrics import precision_score, recall_score, f1_score
+        import math
+
+        precision_vals = []
+        recall_vals = []
+        f1_vals = []
+
+        for epoch in range(len(self.history.history['accuracy'])):
+            y_true_epoch = []
+            y_pred_epoch = []
+            for images, labels in self.train_data:
+                predictions = self.model.predict(images, verbose=0)
+                pred_classes = (predictions > 0.5).astype(int).flatten()
+                y_pred_epoch.extend(pred_classes)
+                y_true_epoch.extend(labels.numpy())
+                break  # one batch for faster estimation
+
+            precision_vals.append(precision_score(y_true_epoch, y_pred_epoch))
+            recall_vals.append(recall_score(y_true_epoch, y_pred_epoch))
+            f1_vals.append(f1_score(y_true_epoch, y_pred_epoch))
+
+        epochs = range(len(precision_vals))
+        plt.figure()
+        plt.plot(epochs, precision_vals, 'bo-', label='Training Precision')
+        plt.plot(epochs, recall_vals, 'go-', label='Training Recall')
+        plt.plot(epochs, f1_vals, 'ro-', label='Training F1 Score')
+        plt.title('Precision, Recall, and F1 Score Over Epochs')
+        plt.xlabel('Epochs')
+        plt.ylabel('Score')
+        plt.legend()
+        plt.grid(True)
+        if DISPLAY_PLOTS:
+            plt.show()
+        plt.savefig(f"{ROOT_DIR}/results/sota/efficient_net_metrics_over_epochs.png")
+
 
     def plot_confusion_matrix(self):
         """
@@ -202,24 +250,65 @@ class EfficientNetBinaryClassifier:
         self.model = tf.keras.models.load_model(path)
         print(f"Model loaded from {path}")
 
-    def plot_sample_predictions(self, num_images=18):
-        fig, axes = plt.subplots(nrows=num_images // 3, ncols=3, figsize=(10, 20))
+    def create_no_sample_found_image(self, text: str = "No Sample Found"):
+        blank_image = np.zeros((self.img_size[0], self.img_size[1], 3), dtype=np.uint8)
+        cv2.putText(blank_image, text, (24, 118), cv2.FONT_HERSHEY_SIMPLEX, .6, (255, 255, 255), 2)
+        return blank_image
+
+    def plot_sample_predictions(self, num_images=12):
+        samples = []
         index = 0
-
         for image, label in self.test_data.unbatch():
-            if index >= num_images:
-                break
-
-            image_np = image.numpy().astype("uint8")
-            label_int = int(label.numpy().item())
-            pred_label = self.y_pred_classes[index]
-
-            ax = axes.flat[index]
-            ax.imshow(image_np)
-            ax.set_title(f'EfficientNet - Actual: {self.class_names[label_int]}\nPredict: {self.class_names[pred_label]}', fontsize=10)
-            ax.axis('off')
-
+            samples.append((image.numpy().astype('uint8'), int(label.numpy().item()), self.y_pred_classes[index]))
             index += 1
+
+        picked_sample_indexes = set()
+
+        def pick_sample(label_int, pred_label):
+            for index, sample in enumerate(samples):
+                image, label, pred = sample
+                if label == label_int and pred == pred_label and index not in picked_sample_indexes:
+                    picked_sample_indexes.add(index)
+                    return image, label, pred
+            return self.create_no_sample_found_image(), label_int, pred_label
+
+        picked_samples = [
+            pick_sample(0, 0),
+            pick_sample(0, 0),
+            pick_sample(0, 0),
+            pick_sample(0, 0),
+            pick_sample(1, 1),
+            pick_sample(1, 1),
+            pick_sample(1, 1),
+            pick_sample(1, 1),
+            pick_sample(0, 1),
+            pick_sample(0, 1),
+            pick_sample(1, 0),
+            pick_sample(1, 0),
+        ]
+
+        fig, axes = plt.subplots(nrows=num_images // 4, ncols=4, figsize=(10, 10))
+
+        for i, sample in enumerate(picked_samples):
+            image, label_int, pred_label = sample
+            ax = axes.flat[i]
+            ax.imshow(image)
+            label_class_name = self.class_names[label_int]
+            pred_class_name = self.class_names[pred_label]
+            is_false_positive = label_int == 0 and pred_label == 1
+            is_false_negative = label_int == 1 and pred_label == 0
+            title = f"\nActual: {label_class_name}\nPredict: {pred_class_name}\n"
+            title += \
+                "(True Negative)" if label_int == 0 and pred_label == 0 else \
+                "(True Positive)" if label_int == 1 and pred_label == 1 else \
+                "(False Negative)" if is_false_negative else \
+                "(False Positive)" if is_false_positive else ""
+            ax.set_title(
+                title,
+                fontsize=12,
+                color='red' if is_false_negative else 'blue' if is_false_positive else 'black'
+            )
+            ax.axis('off')
 
         plt.tight_layout()
         plt.savefig(f"{ROOT_DIR}/results/sota/efficient_net_sample_predictions.png")
@@ -239,6 +328,7 @@ if __name__ == "__main__":
     classifier.train_model()
     classifier.fine_tune_model()
     classifier.plot_performance()
+    classifier.plot_epoch_metrics()
     classifier.save_model(MODEL_PATH)
 
     classifier.evaluate_model()
