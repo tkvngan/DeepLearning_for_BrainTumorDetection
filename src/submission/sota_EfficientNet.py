@@ -14,7 +14,7 @@ tf.random.set_seed(SEED)
 os.environ['TF_DETERMINISTIC_OPS'] = '1'
 
 # Control if plots are displayed
-DISPLAY_PLOTS = False
+DISPLAY_PLOTS = True
 
 # Set file directory paths
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
@@ -250,9 +250,10 @@ class EfficientNetBinaryClassifier:
         self.model = tf.keras.models.load_model(path)
         print(f"Model loaded from {path}")
 
-    def create_no_sample_found_image(self, text: str = "No Sample Found"):
+
+    def create_no_sample_found_image(self, text: str = "No False Predictions"):
         blank_image = np.zeros((self.img_size[0], self.img_size[1], 3), dtype=np.uint8)
-        cv2.putText(blank_image, text, (24, 118), cv2.FONT_HERSHEY_SIMPLEX, .6, (255, 255, 255), 2)
+        cv2.putText(blank_image, text, (12, 118), cv2.FONT_HERSHEY_SIMPLEX, .6, (255, 255, 255), 2)
         return blank_image
 
     def plot_sample_predictions(self, num_images=12):
@@ -316,6 +317,41 @@ class EfficientNetBinaryClassifier:
             plt.show()
         plt.close()
 
+    def plot_sample_prediction_from_file(self, image_path, need_preprocess:bool):
+        img = cv2.imread(image_path)
+        if need_preprocess:
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # Convert BGR to RGB
+            img = cv2.resize(img, self.img_size)  # Resize to target size
+            img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)  # Convert to grayscale
+            img = cv2.equalizeHist(img)  # Apply histogram equalization
+            img = cv2.cvtColor(img, cv2.COLOR_GRAY2RGB)
+
+        img = np.expand_dims(img, axis=0)
+        file_name = os.path.basename(image_path)
+        prediction = self.model.predict(img, verbose=0)
+        print(f"{file_name}: {prediction}")
+        pred_class = int(prediction > 0.5)
+
+        plt.figure(figsize=(8, 8))
+        plt.imshow(img[0])
+        plt.title(
+            f"Predicted: {self.class_names[pred_class]}\n" +
+            f"(Probability of having tumor: {prediction[0][0]:.2f}" + ")\n" +
+            f"Image: {file_name}", fontsize=12)
+        plt.axis('off')
+        plt.show()
+
+
+    def plot_sample_predictions_from_dir(self, dir_path, need_preprocess:bool = True):
+        for file in sorted(os.listdir(dir_path)):
+            if file.endswith(('.jpg', '.jpeg', '.png')):
+                image_path = os.path.join(dir_path, file)
+                self.plot_sample_prediction_from_file(image_path, need_preprocess)
+
+    def plot_internet_sample_predictions(self):
+        self.plot_sample_predictions_from_dir(f"{ROOT_DIR}/data/tumor_internet/", need_preprocess=True)
+        # self.plot_sample_predictions_from_dir(f"{ROOT_DIR}/data/processed/test/no_tumor", need_preprocess=False)
+        # self.plot_sample_predictions_from_dir(f"{ROOT_DIR}/data/processed/test/tumor", need_preprocess=False)
 
 if __name__ == "__main__":
     classifier = EfficientNetBinaryClassifier(
@@ -324,14 +360,20 @@ if __name__ == "__main__":
         test_dir=f'{ROOT_DIR}/data/processed/test/'
     )
     classifier.load_data()
-    classifier.build_model()
-    classifier.train_model()
-    classifier.fine_tune_model()
-    classifier.plot_performance()
-    classifier.plot_epoch_metrics()
-    classifier.save_model(MODEL_PATH)
+    if os.path.exists(MODEL_PATH):
+        print(f"Model loaded from {MODEL_PATH}")
+        classifier.load_model(MODEL_PATH)
+    else:
+        print(f"Model not found at {MODEL_PATH}. Training a new model.")
+        classifier.build_model()
+        classifier.train_model()
+        classifier.fine_tune_model()
+        classifier.plot_performance()
+        classifier.plot_epoch_metrics()
+        classifier.save_model(MODEL_PATH)
 
     classifier.evaluate_model()
     classifier.generate_predictions()
     classifier.plot_confusion_matrix()
     classifier.plot_sample_predictions()
+    classifier.plot_internet_sample_predictions()
